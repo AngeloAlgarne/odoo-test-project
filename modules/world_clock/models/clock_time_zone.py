@@ -11,6 +11,7 @@ class ClockTimeZone(models.Model):
     timezone = fields.Char('Time Zone', required=True)
     country = fields.Char('Country')
     valid = fields.Boolean('Valid')
+    by_user = fields.Many2one('res.users', string="By User")
 
     @api.model
     def create(self, kwargs: dict):

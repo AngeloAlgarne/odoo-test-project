@@ -9,6 +9,7 @@
                     <group>
                         <field name="timezone"/>
                         <field name="country"/>
+                        <field name="by_user"/>
                     </group>
                 </sheet>
             </form>
@@ -23,6 +24,7 @@
                 <field name="timezone"/>
                 <field name="country"/>
                 <field name="valid"/>
+                <field name="by_user"/>
             </tree>
         </field>
     </record>

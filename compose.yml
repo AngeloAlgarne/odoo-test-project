@@ -1,22 +1,31 @@
 version: '3.1'
 services:
+  # odoo web app
   web:
-    image: odoo:16
-    container_name: odoo_web
+    container_name: odoo-web
+    build:
+      context: ./
+      dockerfile: ./.docker/Dockerfile.dev
     depends_on:
       - mydb
     volumes:
       - odoo-web-data:/var/lib/odoo
-      - ./:/mnt/extra-addons
+      - ./modules:/mnt/extra-addons
+      # - ./.git:/mnt/.git
+      # - type: bind
+      #   source: ./.gitignore
+      #   target: /mnt/.gitignore
     ports:
       - "8069:8069"
     environment:
     - HOST=mydb
     - USER=odoo
     - PASSWORD=myodoo
+
+  # postgres db
   mydb:
+    container_name: odoo-db
     image: postgres:15
-    container_name: odoo_db
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=myodoo
@@ -24,6 +33,7 @@ services:
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
+
 volumes:
   odoo-web-data:
   odoo-db-data:
