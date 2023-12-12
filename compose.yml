@@ -11,10 +11,6 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./modules:/mnt/extra-addons
-      # - ./.git:/mnt/.git
-      # - type: bind
-      #   source: ./.gitignore
-      #   target: /mnt/.gitignore
     ports:
       - "8069:8069"
     environment:

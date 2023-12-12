@@ -4,6 +4,11 @@ from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
 
+# Test pandas
+_logger.debug(pandas.array([1,2,3,4,5,6,7,8,9,0]))
+_logger.debug(pandas.array([1,2,3,4,5,6,7,8,9,0]))
+_logger.debug(pandas.array([1,2,3,4,5,6,7,8,9,0]))
+
 class ClockTimeZone(models.Model):
     _name = 'clock.time.zone'
     _description = 'Clock\'s Time Zone'
@@ -20,9 +25,6 @@ class ClockTimeZone(models.Model):
         # Get timezone
         tz: str = str(kwargs.get('timezone', '')).strip()
         kwargs['valid'] = tz and tz in pytz.all_timezones_set
-
-        # Test pandas
-        _logger.debug(pandas.array([1,2,3,4,5,6,7,8,9,0]))
 
         # Check time
         try:

@@ -3,10 +3,10 @@ FROM odoo:16
 WORKDIR /etc/odoo
 COPY ./.docker/modules_requirements.txt /etc/odoo/requirements.txt
 
-# USER root
-# RUN apt-get update && apt-get upgrade -y
-# RUN apt-get install -y git && apt-get install -y sudo
-# RUN usermod -aG sudo odoo && usermod -aG wheel odoo
+USER root
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y git && apt-get install -y sudo
+RUN usermod -aG sudo odoo
 
 # USER odoo
 RUN pip install -r /etc/odoo/requirements.txt

@@ -1,1 +1,2 @@
-# nothing yet
+# ignore this folder, which is created when using dev containers
+extra-addons/
