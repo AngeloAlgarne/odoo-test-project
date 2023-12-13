@@ -7,6 +7,4 @@ USER root
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y git && apt-get install -y sudo
 RUN usermod -aG sudo odoo
-
-USER odoo
 RUN pip install -r /etc/odoo/requirements.txt
