@@ -15,10 +15,10 @@ services:
   # odoo web app
   odoo-app:
     container_name: odoo-app
-    # build:
-    #   context: ./
-    #   dockerfile: ./.docker/Dockerfile.dev
-    image: docker/dev-environments-default:stable-1
+    build:
+      context: ./
+      dockerfile: ./.docker/Dockerfile.dev
+    # image: docker/dev-environments-default:stable-1
     depends_on:
     - odoo-db
     volumes:
