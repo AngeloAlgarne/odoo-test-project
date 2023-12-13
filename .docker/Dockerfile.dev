@@ -17,3 +17,5 @@ RUN useradd -s /bin/bash -m vscode \
  && echo 'vscode:vscode' | sudo chpasswd
 
 RUN pip install -r /etc/odoo/requirements.txt
+
+EXPOSE 8069

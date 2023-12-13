@@ -1,13 +1,57 @@
+# services:
+#   app:
+#     entrypoint:
+#     - sleep
+#     - infinity
+#     image: docker/dev-environments-default:stable-1
+#     init: true
+#     volumes:
+#     - type: bind
+#       source: /var/run/docker.sock
+#       target: /var/run/docker.sock
+
+version: '3.1'
 services:
-  app:
+  # odoo web app
+  odoo-app:
+    container_name: odoo-app
+    # build:
+    #   context: ./
+    #   dockerfile: ./.docker/Dockerfile.dev
+    image: docker/dev-environments-default:stable-1
     depends_on:
     - odoo-db
-    entrypoint:
-    - sleep
-    - infinity
-    image: docker/dev-environments-default:stable-1
-    init: true
     volumes:
+    - odoo-web-data:/var/lib/odoo
+    - ./modules:/mnt/extra-addons
     - type: bind
       source: /var/run/docker.sock
       target: /var/run/docker.sock
+    ports:
+    - "8069:8069"
+    expose:
+    - 8069
+    environment:
+    - HOST=odoo-db
+    - USER=odoo
+    - PASSWORD=myodoo
+    restart: always
+    # command: service odoo start && /bin/sh -c "while sleep 1000; do :; done"
+
+  # postgres db
+  odoo-db:
+    container_name: odoo-db
+    image: postgres:15
+    environment:
+    - POSTGRES_DB=postgres
+    - POSTGRES_PASSWORD=myodoo
+    - POSTGRES_USER=odoo
+    - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+    - odoo-db-data:/var/lib/postgresql/data/pgdata
+    restart: always
+    # command: service postgresql start && /bin/sh -c "while sleep 1000; do :; done"
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:
