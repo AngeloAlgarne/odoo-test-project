@@ -7,13 +7,15 @@ services:
       context: ./
       dockerfile: ./.docker/Dockerfile.dev
     depends_on:
-      - odoo-db
+    - odoo-db
     volumes:
-      - odoo-web-data:/var/lib/odoo
-      - ./modules:/mnt/extra-addons
-      # - .:/mnt:cached # update this to wherever you want VS Code to mount the folder of your project
+    - odoo-web-data:/var/lib/odoo
+    - ./modules:/mnt/extra-addons
+    # - .:/mnt:cached # update this to wherever you want VS Code to mount the folder of your project
     ports:
-      - "8069:8069"
+    - "8069:8069"
+    expose:
+    - 8069
     environment:
     - HOST=odoo-db
     - USER=odoo
@@ -25,12 +27,12 @@ services:
     container_name: odoo-db
     image: postgres:15
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=myodoo
-      - POSTGRES_USER=odoo
-      - PGDATA=/var/lib/postgresql/data/pgdata
+    - POSTGRES_DB=postgres
+    - POSTGRES_PASSWORD=myodoo
+    - POSTGRES_USER=odoo
+    - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - odoo-db-data:/var/lib/postgresql/data/pgdata
+    - odoo-db-data:/var/lib/postgresql/data/pgdata
     restart: always
 
 volumes:
