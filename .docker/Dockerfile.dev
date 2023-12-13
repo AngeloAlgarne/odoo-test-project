@@ -16,6 +16,4 @@ RUN useradd -s /bin/bash -m vscode \
  && usermod -aG docker vscode \
  && echo 'vscode:vscode' | sudo chpasswd
 
-USER vscode
-
 RUN pip install -r /etc/odoo/requirements.txt
