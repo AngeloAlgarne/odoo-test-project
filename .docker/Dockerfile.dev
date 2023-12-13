@@ -4,14 +4,18 @@ WORKDIR /etc/odoo
 COPY ./.docker/modules_requirements.txt /etc/odoo/requirements.txt
 
 USER root
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y git && apt-get install -y sudo
-RUN usermod -aG sudo odoo
-RUN pip install -r /etc/odoo/requirements.txt
+RUN apt-get update \
+ && apt-get upgrade -y \
+ && apt-get install -y git \
+ && apt-get install -y sudo \
+ && usermod -aG sudo odoo
 
 # create vscode user then add to docker group
 RUN useradd -s /bin/bash -m vscode \
  && groupadd docker \
- && usermod -aG docker vscode
+ && usermod -aG docker vscode \
+ && echo 'user:passwd' | sudo chpasswd
 
 USER vscode
+
+RUN pip install -r /etc/odoo/requirements.txt

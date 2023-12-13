@@ -21,6 +21,7 @@ services:
     - USER=odoo
     - PASSWORD=myodoo
     restart: always
+    command: service odoo start && /bin/sh -c "while sleep 1000; do :; done"
 
   # postgres db
   odoo-db:
@@ -34,6 +35,7 @@ services:
     volumes:
     - odoo-db-data:/var/lib/postgresql/data/pgdata
     restart: always
+    command: service postgresql start && /bin/sh -c "while sleep 1000; do :; done"
 
 volumes:
   odoo-web-data:
