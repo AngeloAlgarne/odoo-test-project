@@ -18,5 +18,8 @@ services:
     #   - seccomp:unconfined
 
     # Overrides default command so things don't shut down after the process ends.
-    command: /bin/sh -c "while sleep 1000; do :; done"
- 
+    command: service odoo start && /bin/sh -c "while sleep 1000; do :; done"
+  
+  odoo-db:
+    command: service postgresql start && /bin/sh -c "while sleep 1000; do :; done"
+
