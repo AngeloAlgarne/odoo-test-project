@@ -33,10 +33,11 @@ Once the setup is done, you should now be able to work on the code. Some good ru
 
 # Learnings
 This section will be updated every once in a while.
-1. Docker: `pull`, `build`, `run`, `compose`.
-2. A general workflow on developing inside a docker container. This mostly for cases in which I do not want to download packages locally.
-3. General idea of developing odoo modules. Still need to watch more tutorials.
-4. Some common licenses available in GitHub. This project has an MIT Lisence.
+- Docker: `pull`, `build`, `run`, `compose`.
+- A general workflow on developing inside a docker container. This mostly for cases in which I do not want to download packages locally.
+- General idea of developing odoo modules. Still need to watch more tutorials.
+- Some common licenses available in GitHub. This project has an MIT Lisence.
+- Docker's Dev Environments
 
 # Contact
 If you wish to contact me, please direct message me in LinkedIn ([in/johnangeloalgarne](https://www.linkedin.com/in/johnangeloalgarne/)).
