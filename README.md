@@ -21,7 +21,8 @@ To setup the odoo server inside a docker container, make sure that you have the 
 
 ## Steps to start
 1. Pull the git repository locally and open using VS Code ("odoo-test-project" is the current workspace).
-2. Once the project is opened, a popup will show with a prompt "*Folder contains a Dev Container configuration file. Reopen folder to develop in a container*", then click the Reopen button and wait for the initial build (show log to see progress). **To do this manually**, click the double bracket icon at the bottom left then select "*Reopen in Container*", or open the command palette (`Ctrl + Shift + P`), type "*reopen*", and you should be able to select the same thing. Once this is done, you should be able to see "odoo-test-project" (a docker compose) together with "odoo-db" (postgres15 image) and "odoo-web" (custom odoo16 image) in your containers in docker desktop.
+2. Once the project is opened, enter in the terminal `docker compose up -d`.
+3. Click the double bracket icon at the bottom left then select "*Reopen in Container*", or open the command palette (`Ctrl + Shift + P`), type "*reopen*", and you should be able to select the same thing. Once this is done, in docker desktop, you should be able to see "odoo-test-project" (a docker compose) together with "odoo-db" (postgres15 image) and "odoo-web" (custom odoo16 image).
 3. You should now be able to see the same files in the directory ("mnt" is the current workspace). Start coding inside the `extra-addons` directory. **Note** that at this point, you are working inside an Ubuntu environment since that is the default OS for odoo.
 
 ## Important notes
