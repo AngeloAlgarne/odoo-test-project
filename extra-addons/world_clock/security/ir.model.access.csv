@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_world_clock,access of world clock,world_clock.model_clock_time_zone,base.group_user,1,1,1,1

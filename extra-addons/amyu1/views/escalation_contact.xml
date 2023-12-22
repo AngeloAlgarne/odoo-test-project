@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="escalation_contact_tree_view" model="ir.ui.view">
+            <field name="name">escalation.contact.tree.view</field>
+            <field name="model">escalation.contact</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" create="0" edit="1" delete="0">
+                    <field name="level" readonly="1"/>
+                    <field name="timeframe" readonly="1"/>
+                    <field name="name"/>
+                    <field name="contact_number"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+
+
