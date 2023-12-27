@@ -37,14 +37,13 @@ Once the setup is done, you should now be able to work on the code. Some good ru
 3. To push changes, just simply use the usual git commands `add`, `commit`, and `push`. *Note* that you should be working in a different branch other than `main`, say,`devcontainer`.
 
 # Learnings
-This section will be updated every once in a while.
+This section is **completed**. My goal is just to initiate a workflow using Docker for development.
 
 ## General
 - Docker: `pull`, `build`, `run`, `compose`.
 - General workflow on developing inside a docker container (I don't want to install locally).
 - General idea of developing odoo modules. Still need to watch more tutorials.
 - Some common licenses available in GitHub. This project has an MIT Lisence.
-- 
 
 ## Odoo
 - Add `?debug=1` in the address bar (i.e. `localhost:8069?debug=1`) to enable debug mode for updating module lists.
